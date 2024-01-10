@@ -4,13 +4,13 @@ timestamps {
             cleanWs()
         }
        parameters {
-       base64File 'THEFILE'
+       base64File 'FILE'
       }
   
     stage('Example') {
       
-        withFileParameter('THEFILE') {
-          sh 'cat $THEFILE'
+        withFileParameter('FILE') {
+          sh 'cat $FILE'
         }
       
     
