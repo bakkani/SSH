@@ -3,7 +3,7 @@ pipeline {
 
     parameters {
         // Define a Base64 file parameter named FILE
-        base64(name: 'FILE', description: 'Base64-encoded file content')
+        file(name: 'FILE', description: 'Base64-encoded file content')
     }
 
     stages {
