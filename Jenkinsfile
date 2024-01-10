@@ -1,22 +1,18 @@
 pipeline {
     agent any
 
-   parameters {
-  base64File 'FILE'
-}
-
+    environment {
+        AWS_CREDENTIALS = credentials('dev')
+    }
 
     stages {
-        stage('Display Base64 Decoded Content') {
+        stage('Example') {
             steps {
                 script {
-                    echo "Base64-encoded content:"
-                    echo "$FILE"
-                }
-
-                script {
-                    echo "Decoded content using environment variable:"
-                    sh 'echo $FILE | base64 -d'
+                    // Use AWS credentials in your AWS CLI or SDK commands
+                    sh "aws configure set aws_access_key_id ${AWS_CREDENTIALS_USR}"
+                    sh "aws configure set aws_secret_access_key ${AWS_CREDENTIALS_PSW}"
+                    sh "aws s3 ls"  // Example AWS CLI command
                 }
             }
         }
