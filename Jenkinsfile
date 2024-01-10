@@ -1,9 +1,10 @@
 pipeline {
     agent any
 
-    parameters {
-        base64(name: 'FILE', description: 'Base64-encoded file content')
-    }
+   parameters {
+  base64File 'FILE'
+}
+
 
     stages {
         stage('Display Base64 Decoded Content') {
