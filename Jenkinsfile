@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        base64(name: 'FILE', description: 'Base64-encoded file content')
+        file(name: 'FILE', description: 'Base64-encoded file content')
     }
 
     stages {
