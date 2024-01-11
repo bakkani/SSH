@@ -1,5 +1,5 @@
 timestamps {
-    agent 'Built-IN'
+    node ('Built-IN'){
 
    // environment {
      //   AWS_CREDENTIALS = credentials('dev')
@@ -62,5 +62,6 @@ ssh -i /home/ubuntu/devient_key.pem ${ec2User}@${ec2Host}
 
         }
     }
+}
 }
 
