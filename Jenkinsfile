@@ -21,11 +21,19 @@ timestamps {
             // echo "FILE Parameter Value: ${localFilePath}"
             def remoteDirectory = '/tmp/dir/'
             def password = 'Pavankalyanbakkani@123'
+           
+    sshagent(credentials: ['ssh-credentials-id']) {
+      sh '''
+          [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
+          ssh-keyscan -t rsa,dsa example.com >> ~/.ssh/known_hosts
+          ssh -i ${ec2User}@${ec2Host}
+      '''
+    }
 
             // Copy files using scp
            // sh "scp ${password} ${localFilePath} ${ec2User}@${ec2Host}:${remoteDirectory}"
-            sh '''
-ssh -i /home/ubuntu/devient_key.pem ${ec2User}@${ec2Host}
+     //       sh '''
+//ssh -i /home/ubuntu/devient_key.pem ${ec2User}@${ec2Host}
 '''
 
         }
