@@ -4,7 +4,10 @@ timestamps {
    // environment {
      //   AWS_CREDENTIALS = credentials('dev')
   //  }
-
+   environment {
+        AWS_ACCESS_KEY_ID     = credentials('aws_access_key_id')
+        AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key')
+    }
   parameters {
             choice(name: 'ENVIRONMENT', choices: ['dev', 'uat', 'prod'], description: 'Select environment')
         // file(name: 'uploadedFile', description: 'Select a file to upload')
@@ -12,39 +15,7 @@ timestamps {
 
         stage('Copy Files to EC2') {
             script {
-               // def FILE = "${params.uploadedFile}"
- 
-                // Print the file path for debugging
-               // echo "Uploaded file: ${FILE}"
-               // echo "Parameters: ${params}"
-              //  echo "ENVIRONMENT: ${params.ENVIRONMENT}"
-              //  echo "Uploaded file: ${params.uploadedFile}"
-                  // Print the file path for debugging
-               // echo "Uploaded file: ${FILE}"
-//def uploadedFile = params.uploadedFile
-             //   if (uploadedFile == null) {
-                 //   error 'Uploaded file parameter is null. Check if the file is being properly uploaded.'
-              //  }
-
-            // Change directory and set AWS profile and region based on the environment
-            sh '''
-            
-
-                    
-                if [ "$ENVIRONMENT" == "dev" ]; then
-                    export AWS_PROFILE=dev
-                    export AWS_DEFAULT_REGION=us-east-1
-                elif [ "$ENVIRONMENT" == "uat" ]; then
-                    export AWS_PROFILE=uat
-                    export AWS_DEFAULT_REGION=us-east-1
-                elif [ "$ENVIRONMENT" == "prod" ]; then
-                    export AWS_PROFILE=prod
-                    export AWS_DEFAULT_REGION=${AWS_REGION}
-                else
-                    echo "Invalid environment specified"
-                    exit 1
-                fi
-            '''
+               
 
             // Define your EC2 instance details
             def ec2Host = '54.80.212.119'
