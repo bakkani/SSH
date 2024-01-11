@@ -1,4 +1,4 @@
-pipeline {
+timestamps {
     agent any
 
    // environment {
