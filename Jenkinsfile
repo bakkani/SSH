@@ -8,10 +8,7 @@ timestamps {
         AWS_ACCESS_KEY_ID     = credentials('aws_access_key_id')
         AWS_SECRET_ACCESS_KEY = credentials('aws_secret_access_key')
     }
-  parameters {
-            choice(name: 'ENVIRONMENT', choices: ['dev', 'uat', 'prod'], description: 'Select environment')
-        // file(name: 'uploadedFile', description: 'Select a file to upload')
-        }
+  
 
         stage('Copy Files to EC2') {
             script {
