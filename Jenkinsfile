@@ -1,5 +1,5 @@
 timestamps {
-    agent 'Built-in'
+    agent 'Built-IN'
 
    // environment {
      //   AWS_CREDENTIALS = credentials('dev')
