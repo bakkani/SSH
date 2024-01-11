@@ -63,4 +63,4 @@ ssh -i /home/ubuntu/devient_key.pem ${ec2User}@${ec2Host}
         }
     }
 }
-}
+
