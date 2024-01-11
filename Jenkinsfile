@@ -34,7 +34,7 @@ timestamps {
            // sh "scp ${password} ${localFilePath} ${ec2User}@${ec2Host}:${remoteDirectory}"
      //       sh '''
 //ssh -i /home/ubuntu/devient_key.pem ${ec2User}@${ec2Host}
-'''
+//'''
 
         }
     }
