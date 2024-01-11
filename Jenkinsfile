@@ -21,14 +21,22 @@ timestamps {
             // echo "FILE Parameter Value: ${localFilePath}"
             def remoteDirectory = '/tmp/dir/'
             def password = 'Pavankalyanbakkani@123'
+            }
+        
+         stage('Copy Files to EC2') {
+        
            
     sshagent(credentials: ['ssh-credentials-id']) {
+                    def ec2User = 'ubuntu'
+                def ec2Host = '54.80.212.119'
+
       sh '''
           [ -d ~/.ssh ] || mkdir ~/.ssh && chmod 0700 ~/.ssh
           ssh-keyscan -t rsa,dsa example.com >> ~/.ssh/known_hosts
           ssh -i ${ec2User}@${ec2Host}
       '''
     }
+         }
 
             // Copy files using scp
            // sh "scp ${password} ${localFilePath} ${ec2User}@${ec2Host}:${remoteDirectory}"
